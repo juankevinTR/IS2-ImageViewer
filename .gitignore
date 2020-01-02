@@ -1,3 +1,5 @@
+# Avoid uploading images to GitHub
+images/
 
 # Created by https://www.gitignore.io/api/java,intellij,netbeans
 # Edit at https://www.gitignore.io/?templates=java,intellij,netbeans
