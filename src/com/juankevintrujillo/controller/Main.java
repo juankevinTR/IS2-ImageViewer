@@ -1,8 +1,8 @@
-package com.juankevintrujillo;
+package com.juankevintrujillo.controller;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        
     }
 }
