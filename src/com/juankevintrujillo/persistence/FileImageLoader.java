@@ -8,17 +8,8 @@ public class FileImageLoader implements ImageLoader {
     private final File[] files;
     private final static String[] imageExtensions = new String[]{"jpg", "png", "bmp"};
 
-    public FileImageLoader(File folder) {
-        this.files = folder.listFiles(withImageExtension());
-    }
-
-    private FileFilter imageTypes() {
-        return new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.getName().endsWith(".JPG");
-            }
-        };
+    public FileImageLoader(String folder) {
+        this.files = new File(folder).listFiles(withImageExtension());
     }
 
     @Override

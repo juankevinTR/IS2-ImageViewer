@@ -5,16 +5,15 @@ import com.juankevintrujillo.ui.SwingImageDisplay;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainFrame extends JFrame {
+class MainFrame extends JFrame {
     private ImageDisplay imageDisplay;
 
-    public MainFrame() {
-        this.setTitle("Image Viewer");
+    MainFrame() {
+        this.setTitle("IS2 - Image Viewer");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setSize(800, 600);
+        this.setSize(350, 350);
         this.setLocationRelativeTo(null);
         this.getContentPane().add(imageDisplay());
         this.getContentPane().add(toolBar(), BorderLayout.SOUTH);
@@ -23,6 +22,10 @@ public class MainFrame extends JFrame {
 
     private JPanel toolBar() {
         JPanel panel = new JPanel();
+
+        Color bgPanel = Color.decode("#0E192B"); //  #0E192B #0E294B #00825A #5BD36D #FFFFFF
+        panel.setBackground(bgPanel);
+
         panel.add(prevButton());
         panel.add(nextButton());
         return panel;
@@ -35,12 +38,7 @@ public class MainFrame extends JFrame {
     }
 
     private ActionListener prevImage() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                imageDisplay.show(imageDisplay.current().prev());
-            }
-        };
+        return e -> imageDisplay.show(imageDisplay.current().prev());
     }
 
     private JButton nextButton() {
@@ -50,12 +48,7 @@ public class MainFrame extends JFrame {
     }
 
     private ActionListener nextImage() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                imageDisplay.show(imageDisplay.current().next());
-            }
-        };
+        return e -> imageDisplay.show(imageDisplay.current().next());
     }
 
     private JPanel imageDisplay() {
@@ -64,7 +57,7 @@ public class MainFrame extends JFrame {
         return sid;
     }
 
-    public ImageDisplay getImageDisplay() {
+    ImageDisplay getImageDisplay() {
         return imageDisplay;
     }
 }
